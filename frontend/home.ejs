@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD <%= title %></title>
+    <style>
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
+.add-product{
+    /* float: right; */
+    color: darkred;
+}
+    </style>
+</head>
+<body>
+    <a href="/add" class="add-product">Add a Product</a>
+    <!-- <button ></button> -->
+    <div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>
+                    Product_ID
+                </th>
+                <th>
+                    Product_Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Seller
+                </th>
+                <th>
+                    Seller_Email
+                </th>
+                <th>
+                    Seller_Mobile_Number
+                </th>
+                <th>
+                    Seller_Address
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>         
+        </thead>
+        <tbody>
+            <% products.forEach((product)=>{  %>
+            <tr>
+                <td><%= product.prod_id %></td>
+                <td><%= product.prod_name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.seller %></td>
+                <td><%= product.seller_email %></td>
+                <td><%= product.ph_no %></td>
+                <td><%= product.seller_address %></td>
+                <td>
+                    <a href="edit/<%= product.prod_id %>">Edit</a>
+                    <a href="delete/<%- product.prod_id %>">Delete</a>
+                </td>
+            </tr>
+
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+    <!-- <h1>hiiiii</h1> -->
+</body>
+</html>
